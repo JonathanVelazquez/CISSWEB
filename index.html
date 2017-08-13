@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CISS Survey</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+    
+
+  
+  <!-- Place your favicon.ico and apple-touch-icon.png in the template root directory -->
+  <link href="favicon.ico" rel="shortcut icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet"> 
+  
+  <!-- Bootstrap CSS File -->
+  <script src="dist/sweetalert.min.js"></script>
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+   <!-- Formated Alert Boxes -->
+    <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+  
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate-css/animate.min.css" rel="stylesheet">
+  
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+	<link href="css/custom.css" rel="stylesheet">
+
+</head>
+
+
+  <script >
+  var totalScore;
+
+handleClick = function(e) {
+  totalScore = helper('answer1') + helper('answer2') + helper('answer3') + helper('answer4') + helper('answer5')
+             + helper('answer6') + helper('answer7') + helper('answer8') + helper('answer9') + helper('answer1s0')
+             + helper('answer11') + helper('answer12') + helper('answer13') + helper('answer14') + helper('answer15');
+}
+
+//checks if somethings is selected in the radio buttons
+handleButton = function(e) {
+
+  if(totalScore>= 1 | totalScore == 0){
+  swal({
+    title:"Total score is: "+ totalScore, 
+    text:"\n ---------------------------------------------------------------- "+ "\n19 or less  \n        You dont have convergence"+ "\n ---------------------------------------------------------------- "+ "\n20 or greater      \n       You are showing symptons"+"\n----------------------------------------------------------------  ",
+    imageUrl: "img/thumbs.png"});
+}else{
+    swal({
+    title:"You must provide an answer!", 
+
+    imageUrl: "img/warningSmall.png"});
+}
+}
+
+
+function helper(name) {
+  var choices = [];
+  var result = 0;
+  var answer = document.getElementsByName(name);
+
+  for (var i = 0; i < answer.length; i++){
+    if (answer[i].checked ) {
+      choices.push(answer[i].value);
+    }
+  }
+
+  for (var i = 0; i < choices.length; i++){
+    result += parseInt(choices[i]);
+  }
+
+  return result;
+
+}
+</script>
+
+
+
+<body>
+
+  <div id="preloader"></div>
+  
+
+  <header id="header">
+    <div class="container">
+    
+      <div id="logo" class="pull-left">
+         <a class="navbar-brand" href="index.html"><h1>CISS Survey<h1></a>
+        <!-- Uncomment below if you prefer to use a text image -->
+        <!--<h3><a href="#hero">Header 1</a></h3>-->
+      </div>
+        
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+           <li class="active"><a href="index.html">Home</a></li>
+
+          <li><a href="#survey">Survey</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+    
+
+
+  <section id="survey">
+  <form action="questionScore.jsp" method="post">
+
+
+
+    
+    
+    <table class="table table-bordered table-striped">
+      <tbody>
+
+         <tr>
+          <td>
+            <div class="">
+
+				<h2><b>Instructions</b>: Please answer the following questions about how your eyes feel when reading or doing close work.</h2>
+            </div>
+            </br>
+          </td>
+        </tr>
+
+
+
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>1. Do your eyes feel tired when reading or doing close work?</h3></div>
+                <label class="radio-inline"><input type="radio" name="answer1" onclick="handleClick(this);" value="0">Never</label>
+                <label class="radio-inline"><input type="radio" name="answer1" onclick="handleClick(this);" value="1">Not Very Often</label>
+                <label class="radio-inline"><input type="radio" name="answer1" onclick="handleClick(this);" value="2">Sometimes</label>
+                <label class="radio-inline"><input type="radio" name="answer1" onclick="handleClick(this);" value="3">Fairly Often</label>
+                <label class="radio-inline"><input type="radio" name="answer1" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>2. Do your eyes feel uncomfortable when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer2" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer2" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer2" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer2" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer2" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>3. Do you have headaches when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer3" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer3" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer3" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer3" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer3" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>4. Do you feel sleepy when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer4" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer4" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer4" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer4" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer4" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>5. Do you lose concentration when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer5" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer5" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer5" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer5" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer5" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>6. Do you have trouble remembering what you have read?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer6" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer6" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer6" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer6" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer6" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>7. Do you have double vision when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer7" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer7" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer7" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer7" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer7" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>8. Do you see the words move, jump, swim, or appear to float on the page when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer8" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer8" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer8" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer8" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer8" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>9. Do you feel like you read slowly?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer9" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer9" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer9" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer9" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer9" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>10. Do your eyes ever hurt when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer10" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer10" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer10" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer10" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer10" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>11. Do your eyes feel sore when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer11" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer11" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer11" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer11" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer11" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>12. Do your eyes feel a "pulling" feeling around your eyes when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer12" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer12" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer12" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer12" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer12" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>13. Do you notice the words blurring or coming in and out of focus when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer13" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer13" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer13" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer13" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer13" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>14. Do you lose your place when reading or doing close work?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer14" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer14" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer14" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer14" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer14" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="container question_underline">
+              <div class="question"><h3>15. Do you have to re-read the same line of words when reading?</h3></div>
+              <label class="radio-inline"><input type="radio" name="answer15" onclick="handleClick(this);" value="0">Never</label>
+              <label class="radio-inline"><input type="radio" name="answer15" onclick="handleClick(this);" value="1">Not Very Often</label>
+              <label class="radio-inline"><input type="radio" name="answer15" onclick="handleClick(this);" value="2">Sometimes</label>
+              <label class="radio-inline"><input type="radio" name="answer15" onclick="handleClick(this);" value="3">Fairly Often</label>
+              <label class="radio-inline"><input type="radio" name="answer15" onclick="handleClick(this);" value="4">Always</label>
+            </div>
+            </br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
+      <button id="btnscore" type="button" class="btn btn-primary" onclick="handleButton(this);" name="viewScore">View Score</button>
+    </div>
+
+    <div class="col-sm-7"></div>
+    <div class="col-sm-2">
+
+    </div>
+  </div>
+    <table border="1" style="border-collapse: separate">
+	<tr><td style="empty-cells: hide"></td></tr><tr><td style="empty-cells: hide"></td></tr>
+</table>
+</form>
+  
+</section>
+
+
+  
+  
+<!--==========================
+  Footer
+============================--> 
+  <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="copyright">
+              &copy; Copyright <strong>Educating Young Eyes</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+
+             
+            </div>
+          </div>
+        </div>
+      </div>
+  </footer><!-- #footer -->
+  
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    
+  <!-- Required JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/morphext/morphext.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/stickyjs/sticky.js"></script>
+  <script src="lib/easing/easing.js"></script>
+  
+
+  <script src="js/custom.js"></script>
+  
+  <script src="contactform/contactform.js"></script>
+  
+    
+</body>
+</html>
