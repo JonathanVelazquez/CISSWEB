@@ -1,9 +1,5 @@
 
-#btnscore {
-  display: block;
-  margin: 0 auto;
- 
-  left: 450%;
-  position: absolute;
-  margin-top: /* size of top container*/;
+#wrapper {
+
+  position: absolute
 }
